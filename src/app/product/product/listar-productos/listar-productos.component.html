@@ -1,0 +1,149 @@
+
+<body>
+  <mat-form-field appearance="standard">
+    <mat-label>Filtrar</mat-label>
+    <input matInput (keypress)="applyFilter($event)" placeholder="Ex. Halo Reach" #input color="accent">
+  </mat-form-field>
+
+  <button mat-flat-button color="primary" style="margin-bottom: 1%; margin-left: 1%;" [routerLink]="['/addproduct',id] " (click)="Change('Crear Juego')">Añadir Juego</button>
+  
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort style=" background-color: rgb(0, 0, 0);opacity: .90;
+    backdrop-filter: blur(100px);">
+
+      
+
+
+
+      <ng-container matColumnDef="stock">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Stock </th>
+        <td mat-cell *matCellDef="let row"> {{row.stock}} </td>
+      </ng-container> 
+      
+       <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+        <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+      </ng-container> 
+  
+      <ng-container matColumnDef="imagen">
+        <th mat-header-cell *matHeaderCellDef> imagen </th>
+        <td mat-cell *matCellDef="let row"> <img style="width: 40%; margin-bottom: 5px; margin-top: 5px;"  src="{{row.imgproduct}}"></td>
+      </ng-container> 
+  
+      <ng-container matColumnDef="descripcion">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Descripcion </th>
+        <td mat-cell *matCellDef="let row"> {{row.description}} </td>
+      </ng-container> 
+  
+      <ng-container matColumnDef="preciocompra" style="margin-right: 10%;">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Precio Compra </th>
+        <td mat-cell *matCellDef="let row"> {{row.purchase_price | currency:'USD'}}  </td>
+      </ng-container> 
+  
+      <ng-container matColumnDef="precioventa">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Precio venta </th>
+        <td mat-cell *matCellDef="let row"> {{row.sale_price | currency:'USD'}} </td>
+      </ng-container> 
+
+      <ng-container matColumnDef="opciones">
+      
+        <th mat-header-cell *matHeaderCellDef mat-sort-header style="margin-left: 2%;"> Opciones </th>
+        <td mat-cell *matCellDef="let row" > 
+          <mat-icon style="color: #fdd835; margin-left: 50%; margin-bottom: 30%; cursor: pointer;" [routerLink]="['/editproduct',row.Id]" (click)="Change('Editar Juego')">edit</mat-icon>
+          <mat-icon style="color: #cc1a1a; margin-left: 50%; cursor: pointer;"  (click)="DeleteProduct(row)">delete</mat-icon>
+
+        </td>
+      </ng-container> 
+  
+     
+     
+  
+      
+  
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No hay nada que mostrar</td>
+      </tr>
+    </table>
+  
+     <mat-paginator [pageSizeOptions]="[3]" aria-label="Select page of list_products" style=" background-color: rgb(0, 0, 0);opacity: .90;
+     backdrop-filter: blur(100px);">
+     
+     </mat-paginator> 
+  </div>
+</body>
+
+
+
+
+
+
+
+
+
+<!-- 
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span >Listado de Juegos</span>
+
+
+                    <button style="border-radius: 20px;" class="btn btn-success float-end" routerLink="/crear-producto"><i class="fas fa-plus-circle"></i></button>
+
+                    <div class="table-responsive-sm">
+
+
+                        <table  *ngIf="list_products.length>0"     class="table table-striped mt-3 table-hover">
+                            <thead>
+                              <tr>
+                          
+                                <th scope="col">comida</th>
+                                <th scope="col">Categoria</th>
+                                <th scope="col">Descripcion</th>
+                                <th scope="col">Precio</th>
+                                <th scope="col">platos disponibles</th>
+
+                                <th scope="col"></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let producto of list_products">
+                                  
+                               
+                                <td>{{producto.producto}}</td>
+                                <td>{{producto.categoria}}</td>
+                                <td>{{producto.descripcion}}</td>
+                                <td>{{producto.precio | currency:'USD'}} </td>
+                                <td>
+                                    <i  [routerLink]="['/editar-producto',producto._id]"  class="far fa-edit text-success" ></i>
+                                </td>
+                                <td><i (click)="delete(producto._id)"   class="fas fa-trash-alt" id="delete"></i></td>
+                              </tr>
+                              
+                            </tbody>
+                          </table>
+
+                          <div class="empty" *ngIf="list_products.length==0">
+
+                            <img src="../../../assets/empty.svg" alt="empty">
+                            <h5 >No hay productos para listar</h5>
+
+                          </div>
+
+
+
+
+
+
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->

@@ -1,0 +1,66 @@
+
+
+body{
+    background: #360033;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to bottom, #0b8793, #360033);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to bottom, #0b8793, #360033); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  
+}
+
+.login-box{
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    width: 320px;
+    height: 420px;
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+    opacity: .90;
+    backdrop-filter: blur(100px);
+}
+
+.login-box .avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+
+.login-box h1{
+
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+
+}
+
+
+
+
+
+
+
+
+
+form mat-form-field{
+    width: 100%;
+}
+
+.login-box a{
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: rgb(131, 120, 120);
+}
+
+.login-box a:hover{
+    color: #fff;
+}

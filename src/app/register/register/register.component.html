@@ -1,0 +1,35 @@
+<body>
+    <div class="login-box">
+        <img class="avatar" src="./assets/login/playstation.png" alt="">
+
+        <h1>Registrate!</h1>
+
+        <form (ngSubmit)="adduser()" >
+            <mat-form-field appearance="fill">
+                <mat-label>Nombre</mat-label>
+                <input matInput type="text" placeholder="ingresa tu nombre" name="name" [(ngModel)]="userData.name">
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                  <mat-label>Correo</mat-label>
+                  <input matInput type="email" placeholder="example@gmail.com"  name="email" [(ngModel)]="userData.email" >
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                  <mat-label>Contraseña</mat-label>
+                  <input matInput type="password" placeholder="Ingrese contraseña" name="password" [(ngModel)]="userData.password" >
+              </mat-form-field>
+
+              <button mat-raised-button color="primary" style="margin-left: auto; margin-right: auto;">Registrame</button>
+
+            
+
+        </form>
+    </div>
+</body>
+    
+    
+
+
+
+

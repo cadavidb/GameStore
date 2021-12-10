@@ -1,0 +1,44 @@
+
+
+ 
+  
+
+
+<!-- 
+
+  <a class="navbar-brand">{{marketData.namemarket}}</a>
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Buscar juego" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+  </form>
+</nav>
+<div class="banner" style="background-image: url('{{marketData.imgbanner}}');"></div>
+
+
+<ng-container *ngIf="marketData.products.length!=0; else nocontent">
+
+
+  <div class="card" style="width: 400px; height: 400px;" *ngFor="let item of marketData.products" style="float: left; margin: 2%;">
+    <h5 class="card-title">{{item.name}}</h5>
+    <img class="card-img-top" src={{item.imgproduct}} alt="Card image cap" style="width: 200px;">
+    <div class="card-body">
+      <p class="card-text">{{item.description}}</p>
+      <a href="#" class="btn btn-primary">Comprar por  {{item.price | currency:'USD'}}</a>
+    </div>
+  </div>
+
+
+
+</ng-container>
+
+
+<ng-template #nocontent>
+  <img src="../../../assets/empty.svg" width="300px;" style="display: block;"  >
+  <small>no hay juegos :v</small>
+</ng-template>  -->
+
+
+
+
+  
+

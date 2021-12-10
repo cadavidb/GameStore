@@ -1,0 +1,115 @@
+<body>
+    <mat-card class="example-card">
+        <mat-card-header style="margin-bottom: 30px;">
+    
+          <mat-card-title >{{titulo}}</mat-card-title>
+          <mat-icon style="font-size: 25px;">store</mat-icon>
+        </mat-card-header>
+        <mat-card-content>
+
+
+            
+              <form  [formGroup]="marketForm" (ngSubmit)="addmarket()" >
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Nombre Tienda</mat-label>
+                    <input matInput  type="text"  formControlName="namemarket" name="namemarket"  placeholder="ingresa el nombre de la tienda">
+                    <div class="text-danger" *ngIf="marketForm.get('namemarket')?.hasError('required') && marketForm.get('namemarket')?.touched">
+                        <span>el nombre de la tienda es <b>obligatorio</b> </span>
+                    </div>
+                  </mat-form-field>
+                  
+                
+
+                  <mat-form-field appearance="fill">
+                    <mat-label>Descripcion</mat-label>
+                    <input matInput  type="text"   formControlName="description" name="description" placeholder="ingresa la descripcion">
+
+                    <div class="text-danger" *ngIf="marketForm.get('description')?.hasError('required') && marketForm.get('description')?.touched">
+                        <span>la descripcion es <b>obligatoria</b> </span>
+                    </div>
+                    
+                  </mat-form-field>
+
+                  <mat-form-field appearance="fill">
+
+                    <mat-label>Banner</mat-label>
+                    <input matInput  type="text" formControlName="imgbanner" name="imgbanner"  placeholder="ingresa la imagen de banner">
+                    <div class="text-danger" *ngIf="marketForm.get('imgbanner')?.hasError('required') && marketForm.get('imgbanner')?.touched">
+                        <span>la imagen de banner es <b>obligatoria</b> </span>
+                    </div>
+                  </mat-form-field>
+
+
+                  <mat-card-actions >
+                    <button mat-flat-button color="primary" style="margin-left: 40%;" type="submit" [disabled]="marketForm.invalid">
+                        <mat-icon>autorenew</mat-icon>
+                    </button>
+                </mat-card-actions>
+    
+                </form>
+
+    
+
+        </mat-card-content>
+        
+      </mat-card>
+</body>
+
+
+
+
+
+
+
+
+<!-- <div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3"></div>
+        <div class="card" style="width: 90%; margin-left: 20px;" >
+            <div class="card-body text-center">
+                <span class="titulo">{{titulo | uppercase}}</span>
+
+                <form  [formGroup]="marketForm" (ngSubmit)="addmarket()" >
+                    <div>
+                        <input MatInput  type="text"  formControlName="namemarket" name="namemarket" class="form-control form-control-lg" placeholder="ingresa el nombre de la tienda">
+                    </div>
+
+                    <div class="text-danger" *ngIf="marketForm.get('namemarket')?.hasError('required') && marketForm.get('namemarket')?.touched">
+                        <span>el nombre de la tienda es <b>obligatorio</b> </span>
+                    </div>
+
+                    <div>
+                        <input matInput  type="text" formControlName="imgbanner" name="imgbanner" class="form-control form-control-lg" placeholder="ingresa la imagen de banner">
+                    </div>
+                    <div class="text-danger" *ngIf="marketForm.get('imgbanner')?.hasError('required') && marketForm.get('imgbanner')?.touched">
+                        <span>la imagen de banner es <b>obligatoria</b> </span>
+                    </div>
+
+                    <div>
+                        <input MatInput  type="text"   formControlName="description" name="description" class="form-control form-control-lg" placeholder="ingresa la descripcion">
+                    </div>
+                    <div class="text-danger" *ngIf="marketForm.get('description')?.hasError('required') && marketForm.get('description')?.touched">
+                        <span>la descripcion es <b>obligatoria</b> </span>
+                    </div>
+
+
+                    <div class="mb-5">
+
+                        <button  style="border-radius: 20px;" class="btn btn-success float-end" type="submit" [disabled]="marketForm.invalid"><i class="fas fa-plus-circle"></i></button>
+                    </div>
+
+
+
+
+                </form>
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+</div> -->

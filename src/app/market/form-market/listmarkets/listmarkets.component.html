@@ -1,0 +1,161 @@
+<body>
+  <button mat-mini-fab style= " position: fixed; margin-top: 1%;margin-left: 1%;  background-color: rgb(82, 42, 143);"  routerLink="/createmarket">
+    <mat-icon style="color: rgb(238, 233, 240);">add_circle</mat-icon>
+  </button>
+  <mat-table [dataSource]="listmymarkets" class="mat-elevation-z8" style="width: 80vw;margin-left: auto; margin-right: auto; background-color: rgb(0, 0, 0); opacity: .90;
+  backdrop-filter: blur(100px);">
+
+  
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="nombre">
+      <mat-header-cell *matHeaderCellDef> Tienda
+
+  
+         </mat-header-cell>
+      <mat-cell *matCellDef="let market"> {{market.namemarket}} </mat-cell>
+    </ng-container>
+  
+    <!-- description Column -->
+    <ng-container matColumnDef="description">
+      <mat-header-cell *matHeaderCellDef> Descripcion </mat-header-cell>
+      <mat-cell *matCellDef="let market" style="text-overflow: ellipsis;"> {{market.description}} </mat-cell>
+    </ng-container>
+  
+    <!-- banner Column -->
+    <ng-container matColumnDef="banner">
+      <mat-header-cell *matHeaderCellDef> Banner </mat-header-cell>
+      <mat-cell *matCellDef="let market"> <img src="{{market.imgbanner}}" id="image"></mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="estado" style="min-width: 30px;">
+      <mat-header-cell *matHeaderCellDef> Estado </mat-header-cell>
+      <mat-cell *matCellDef="let market"> 
+
+        <div class="open" *ngIf="market.estado=='abierta';else cerrada" (click)="desactivate(market.Id,market.estado)">
+                                    
+        </div>
+        
+        <ng-template #cerrada>
+          <div class="closed" (click)="desactivate(market.Id,market.estado)">
+
+          </div>
+        </ng-template>
+         </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="opciones">
+      <mat-header-cell *matHeaderCellDef> Opciones 
+       
+      </mat-header-cell>
+      <mat-cell *matCellDef="let market"> 
+        <mat-icon style="margin-right: 20%; color: #fdd835;" [routerLink]="['/editmarket',market.Id]" >edit</mat-icon>
+        <mat-icon style="color: #00e676;" [routerLink]="['/listProducts',market.Id]">add_shopping_cart</mat-icon>
+      
+      </mat-cell>
+      
+    </ng-container>
+
+   
+  
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h1>Listado de mis tiendas</h1>
+
+
+                    <button style="border-radius: 20px;" class="btn btn-success float-end" routerLink="/createmarket"><i class="fas fa-plus-circle"></i></button>
+
+                    <div class="table-responsive-sm">
+
+                        <table  *ngIf="listmymarkets.length>0"     class="table table-striped mt-3 table-hover">
+                            <thead>
+                              <tr>
+                          
+                                <th scope="col">Nombre Tienda</th>
+                                <th scope="col">Estado</th>
+                                <th scope="col">Descripcion</th>
+                                <th scope="col">Imagen de banner</th>
+                                
+
+
+                            
+                                <th scope="col"></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let market of listmymarkets">
+                                  
+                              
+                                <td>{{market.namemarket}}</td>
+                                
+                                <td>
+                                  <div class="open" *ngIf="market.estado=='abierta';else cerrada" (click)="desactivate(market.Id,market.estado)">
+                                    
+                                  </div>
+                                  
+                                  <ng-template #cerrada>
+                                    <div class="closed" (click)="desactivate(market.Id,market.estado)">
+
+                                    </div>
+                                  </ng-template>
+
+
+                                </td>
+                                <td>{{market.description}}</td>
+                                <td> <img src="{{market.imgbanner}}" id="image"></td>
+                                <td></td>
+                                <td>
+                                  
+                                    <i [routerLink]="['/editmarket',market.Id]"  class="fas fa-edit text-success" style="font-size: 30px;"></i>
+                                </td>
+                                
+
+                                
+                                <td><i class="fas fa-cart-plus" style="font-size: 30px; color: coral;"></i></td>
+                                
+                              </tr>
+                              
+                            </tbody>
+                          </table>
+
+                          <div class="empty" *ngIf="listmymarkets.length==0">
+
+                            <img src="../../../../assets/empty.svg" alt="empty" width="200px">
+                            <h5 >No hay Tiendas</h5>
+
+                          </div>
+
+
+
+
+
+
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->

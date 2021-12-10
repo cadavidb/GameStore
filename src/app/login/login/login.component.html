@@ -1,0 +1,37 @@
+<body>
+    <div class="login-box">
+        <img class="avatar" src="./assets/login/playstation.png" alt="icono">
+
+        <h1>inicia sesion!</h1>
+
+        <form (ngSubmit)="login()" >
+            
+               
+              <mat-form-field appearance="fill">
+                  <mat-label>Correo</mat-label>
+                  <input matInput type="email" placeholder="example@gmail.com"  name="email" [(ngModel)]="data.email" >
+              </mat-form-field>
+
+              <mat-form-field appearance="fill" style="margin-bottom: 30px;">
+                  <mat-label>Contraseña</mat-label>
+                  <input matInput type="password" placeholder="Ingrese contraseña" name="password" [(ngModel)]="data.password" >
+              </mat-form-field>
+
+              <button mat-raised-button color="primary" style="margin-left: auto; margin-right: auto;">Login</button>
+              <button mat-stroked-button color="primary" style="float: right;" [routerLink]="['/register']" routerLinkActive="router-link-active" >No tengo cuenta</button>
+
+            
+            
+        </form>
+    </div>
+</body>
+
+
+    
+
+
+
+
+   
+    
+
