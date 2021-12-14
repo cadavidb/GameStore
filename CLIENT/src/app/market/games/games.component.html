@@ -1,0 +1,45 @@
+<body style=" background: #360033;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to top, #037a85, #360033);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to top, #075c64, #360033); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */">
+
+
+
+
+<mat-toolbar color="primary">
+  <span>{{marketData.namemarket}}</span>
+</mat-toolbar>
+ 
+<mat-grid-list cols="3" rowHeight="2:1">
+  
+
+  
+      <mat-card class="example-card" *ngFor="let game of marketData.products" style="background-color: rgba(0, 0, 0, 0.767);
+      backdrop-filter: blur(100px);">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{game.name}}</mat-card-title>
+          
+        </mat-card-header>
+        <img mat-card-image width="100px" height="300px"  src="{{game.imgproduct}}" >
+        <mat-card-content>
+          
+            {{game.description}}
+          <button mat-button style="color: rgb(236, 239, 253); font-size: 30px;" (click)="Onavigate(game)"> <mat-icon >shop</mat-icon></button>
+        </mat-card-content>
+      </mat-card>
+  
+      
+    
+  
+    </mat-grid-list>
+</body>
+
+
+
+
+
+
+
+
+  
+

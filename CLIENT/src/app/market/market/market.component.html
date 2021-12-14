@@ -1,0 +1,153 @@
+<mat-toolbar style="background-color: #440141; box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2)">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon (click)="drawer.toggle()">menu</mat-icon>
+  </button>
+  <mat-icon style="font-size: 25px;">store</mat-icon>
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon (click)="exit()">directions_run</mat-icon>
+  </button>
+  
+</mat-toolbar>
+
+
+<div class="c">
+
+  <mat-drawer-container class="example-container" autosize >
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+  
+      <mat-nav-list>
+        <mat-list-item [routerLink]="['/marketsclient']" routerLinkActive="router-link-active">
+          <mat-icon>dashboard</mat-icon>
+         <span style="margin-left: 5px;">Administracion</span>
+        
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon>laptop_mac</mat-icon>
+         <span style="margin-left: 5px;">Developers</span>
+        </mat-list-item>
+      </mat-nav-list>
+    
+    </mat-drawer>
+  
+    <mat-grid-list cols="3" rowHeight="2:1">
+  
+      
+  
+  
+      <mat-card class="example-card" *ngFor="let market of markets" style="background-color: rgba(0, 0, 0, 0.767); opacity: .90;
+      backdrop-filter: blur(100px);">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{market.namemarket}}</mat-card-title>
+          <mat-card-subtitle [ngClass]="{'opened': market.estado=='abierta','closed':market.estado=='cerrada'}" >{{market.estado}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image width="100px" src="{{market.imgbanner}}">
+        <mat-card-content>
+          <p>
+            {{market.description}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button  at-button style="color: rgb(63, 81, 181); " (click)="addLike(market.owner_market,market.Id)"> <mat-icon >thumb_up_alt</mat-icon> <b style="margin-left: 10px;">{{market.likes}}</b></button>
+          <button mat-button style="color: rgb(244, 67, 54);" (click)="addDislike(market.owner_market,market.Id)"> <mat-icon >thumb_down_alt</mat-icon><b style="margin-left: 10px;">{{market.dislikes}}</b></button>
+          <button  *ngIf="market.estado=='abierta'"   mat-flat-button [routerLink]="['/market', market.Id]"
+          routerLinkActive="router-link-active" style="float: right; background-color: rgb(82, 42, 143); border-radius: 50px;"><mat-icon>shopping_cart</mat-icon></button>
+        </mat-card-actions>
+      </mat-card>
+  
+      
+    
+  
+    </mat-grid-list>
+  
+    
+  
+  </mat-drawer-container>
+
+</div>
+
+
+
+
+
+
+
+<!-- 
+
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand bg-success" [routerLink]="['/marketsclient']" routerLinkActive="router-link-active" >crear mi tienda</a>
+ <button class="btn btn-danger" (click)="exit()">salir</button>
+</nav>
+<h1>Tiendas de videojuegos</h1>
+
+<div [ngSwitch]="markets">
+  <div *ngSwitchCase="markets==[]">
+    <img src="./assets/empty.svg" width="300px">
+  </div>
+
+
+  <div *ngSwitchCase="!markets.length">
+
+    <div class="d-flex justify-content-center" *ngSwitchDefault>
+
+      <div class="spinner-grow text-primary" role="status" style="margin-left: 15px;">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div class="spinner-grow text-secondary" role="status" style="margin-left: 15px;">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div class="spinner-grow text-success" role="status" style="margin-left: 15px;">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div class="spinner-grow text-danger" role="status" style="margin-left: 15px;">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div class="spinner-grow text-warning" role="status" style="margin-left: 15px;">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div class="spinner-grow text-info" role="status" style="margin-left: 15px;">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div class="spinner-grow text-light" role="status" style="margin-left: 15px;">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div class="spinner-grow text-dark" role="status" style="margin-left: 15px;">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+
+  </div>
+  
+  
+  <div class="card" style="width: 200px; margin-left: 1%; margin-right: 1%; float: left;" *ngFor="let item of markets">
+      <img src="./favicon.ico" class="card-img-top" alt="..." style="width: 80px;">
+      <div class="card-body">
+        <h5 class="card-title">{{item.namemarket}}</h5>
+        <p class="card-text">{{item.description}}</p>
+        <a [routerLink]="['/market', item.Id]"
+        routerLinkActive="router-link-active" class="btn btn-primary">to look</a>
+      </div>
+    </div>
+  
+
+  
+
+
+   
+
+  
+</div>
+
+
+
+
+
+
+
+
+  
+
+
+
+ -->

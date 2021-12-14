@@ -1,0 +1,59 @@
+mat-cell img{
+    width: 10vw;
+    height: 8vh;
+    margin: 5px;
+  
+    border-radius: 5px;
+
+}
+body{
+    background: #360033;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #0b8793, #360033);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #0b8793, #360033); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+   
+}
+mat-cell{
+    cursor: pointer;
+    padding: 1%;
+}
+
+
+i{
+    cursor: pointer;
+}
+
+.parrafo{
+    color: white;
+}
+
+th{
+    margin-left: 20px;
+}
+#delete{
+    color:rgb(206, 36, 36)
+}
+.empty img{
+    margin-bottom: 10px;
+    width: 50%;
+    height: 20%;
+}
+
+
+.open{
+    width: 7vw;
+    height: 7vh;
+    background-image: url(/assets/open.png); 
+    background-position:center;
+    background-size: 75%;
+    background-repeat: no-repeat;
+}
+
+.closed{
+    width: 7vw;
+    height: 7vh;
+    background-image: url(/assets/close.png); 
+    background-position:center;
+    background-size: 75%;
+    background-repeat: no-repeat;
+    
+}

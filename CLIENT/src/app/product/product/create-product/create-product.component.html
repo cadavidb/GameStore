@@ -1,0 +1,101 @@
+<body>
+    <mat-card class="example-card">
+        <mat-card-header style="margin-bottom: 30px;">
+    
+          <mat-card-title >{{titulo}}</mat-card-title>
+          <mat-icon style="font-size: 25px;">store</mat-icon>
+        </mat-card-header>
+        <mat-card-content>
+
+
+            
+              <form  [formGroup]="productForm" (ngSubmit)="AddOrUpdate()" >
+
+                <mat-form-field appearance="fill" style="width: 24vw;">
+                    <mat-label>Nombre Juego</mat-label>
+                    <input matInput  type="text"  formControlName="namegame" name="namegame"  placeholder="ingresa el nombre del juego">
+                    <div class="text-danger" *ngIf="productForm.get('namegame')?.hasError('required') && productForm.get('namegame')?.touched">
+                        <span>el nombre del juego es <b>obligatorio</b> </span>
+                    </div>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="fill" style="width: 24vw;">
+
+                    <mat-label>Imagen</mat-label>
+                    <input matInput  type="text" formControlName="imgame" name="imgame"  placeholder="ingresa la imagen del juego">
+                    <div class="text-danger" *ngIf="productForm.get('imgame')?.hasError('required') && productForm.get('imgame')?.touched">
+                        <span>la imagen del juego es <b>obligatoria</b> </span>
+                    </div>
+                  </mat-form-field>
+                  
+                
+
+                  <mat-form-field appearance="fill">
+                    <mat-label>Descripcion</mat-label>
+                    <input matInput  type="text"   formControlName="description" name="description" placeholder="ingresa la descripcion">
+
+                    <div class="text-danger" *ngIf="productForm.get('description')?.hasError('required') && productForm.get('description')?.touched">
+                        <span>la descripcion es <b>obligatoria</b> </span>
+                    </div>
+                  </mat-form-field>
+
+
+                 
+                  <mat-form-field appearance="fill" style="width: 25vw;">
+
+                    <mat-label>Precio Compra</mat-label>
+                    <input matInput  type="number" formControlName="preciocompra" name="preciocompra"  placeholder="ingresa el precio">
+                    <div class="text-danger" *ngIf="productForm.get('preciocompra')?.hasError('required') && productForm.get('preciocompra')?.touched">
+                        <span>el precio de compra es <b>obligatorio</b> </span>
+                    </div>
+
+                  </mat-form-field>
+
+                  <mat-form-field appearance="fill" style="width: 25vw;">
+                  <mat-label>Precio Venta</mat-label>
+                  <input matInput  type="number" formControlName="precioventa" name="precioventa"  placeholder="ingresa el precio">
+                  <div class="text-danger" *ngIf="productForm.get('precioventa')?.hasError('required') && productForm.get('precioventa')?.touched">
+                      <span>el precio de venta es <b>obligatorio</b> </span>
+                  </div>
+                </mat-form-field>
+
+            <mat-form-field appearance="fill" style="width: 25vw;" >
+            
+            <mat-label >Cantidad</mat-label>
+            <input matInput  type="number" formControlName="cantidad" name="cantidad"  placeholder="ingresa la cantidad de unidades">
+            <div class="text-danger" *ngIf="productForm.get('cantidad')?.hasError('required') && productForm.get('cantidad')?.touched">
+                <span>la cantidad es <b>obligatoria</b> </span>
+            </div>
+          </mat-form-field>
+
+  <mat-form-field appearance="fill" style="width: 25vw;" *ngIf="titulo=='Crear Juego'">
+    <mat-label>Proveedor</mat-label>
+
+  <mat-select [(value)]="ProviderSelected">
+    <mat-option  *ngFor="let provider of Providers" value="{{provider.Id}}">
+      {{provider.name}}
+    </mat-option>
+  </mat-select>
+  
+
+
+            <!-- <input matInput  type="number" formControlName="proveedor" name="proveedor"  placeholder="ingresa el proveedor" value="6"> -->
+            <div class="text-danger" *ngIf="productForm.get('proveedor')?.hasError('required') && productForm.get('proveedor')?.touched">
+                <span>el proveedor es <b>obligatorio</b> </span>
+            </div>
+  </mat-form-field>
+          <!-- [disabled]="productForm.invalid -->
+                  <mat-card-actions >
+                    <button mat-flat-button color="primary" style="margin-left: 40%;" type="submit" [disabled]="productForm.invalid"  >
+                        <mat-icon>cloud_upload</mat-icon>
+                    </button>
+                </mat-card-actions>
+    
+                </form>
+
+    
+
+        </mat-card-content>
+        
+      </mat-card>
+</body>
